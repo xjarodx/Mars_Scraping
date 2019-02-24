@@ -13,15 +13,16 @@ coll = db.mars_info
 
 @app.route("/")
 def index():
-    mars_data = coll.find_one()
-    return render_template("index.html", mars_data=mars_data)
+    mars_dict = coll.find_one()
+    return render_template("index.html", mars_data=mars_dict)
 
 from scrape_mars import scrapey_mars
 
 @app.route("/scrape")
 def scrape():
     mars_data = scrapey_mars()
-    coll.update({"i":1}, {"$set": mars_data}, upsert = True)
+    coll.update({},mars_data, upsert = True)
+    return redirect('/')
     
 if __name__ == "__main__":
     app.run(debug=True)

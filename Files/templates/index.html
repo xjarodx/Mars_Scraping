@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"\
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"\
+          integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <title>Mars Info</title>
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h1 style="text-align: center;"><strong> MARS INFO </strong></h1>
+        <p style="text-align: center;">
+            <a class="btn btn-primary btn-sm" href="/scrape" role="button"><strong>Scrape for the most recent data</strong></a>
+        </p>
+    </div>
+
+    <div class="container">
+        
+        <div class="col-md-8">
+            <h3>Whats going on on Mars?</h3>
+            <hr>
+            <h4>{{mars_data.News_Title}}</h4>
+            <p>{{mars_data.News_Summary}}</p>
+            <br>
+            <h3>Latest Weather Information</h3>
+            <hr>
+            <h4>{{mars_data.weather_info}}</h4>
+            <br>
+            <h2 align="center">Featured Image</h2>
+            <hr>
+            <h4>{{mars_data.Featured_Image_Title}}</h4>
+            <a href="{{mars_data.Featured_Image_Link}}">
+            <img src="{{mars_data.Featured_Image_Link}}" alt="Featured Mars Image" width=100%>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 align="center">Interesting Facts</h3>
+                    <hr>
+                    <p>{{mars_data.facts_table | safe}}</p>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 align="center">Hemisphere Images</h3>
+                            <h5 align="center">Click an image to see the full size</h5>
+                            <hr>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <h5 align="center">{{mars_data.Hemisphere_title_data[0].hem_title}}</h5>
+                                <a href="{{mars_data.Hemisphere_image_data[0].image_url}}">
+                                <img src="{{mars_data.Hemisphere_image_data[0].image_url}}" width= 100%>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 align="center">{{mars_data.Hemisphere_title_data[1].hem_title}}</h5>
+                                <a href="{{mars_data.Hemisphere_image_data[1].image_url}}">
+                                <img src="{{mars_data.Hemisphere_image_data[1].image_url}}" width= 100%>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <h5 align="center">{{mars_data.Hemisphere_title_data[2].hem_title}}</h5>
+                                <a href="{{mars_data.Hemisphere_image_data[2].image_url}}">
+                                <img src="{{mars_data.Hemisphere_image_data[2].image_url}}" width= 100%>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 align="center">{{mars_data.Hemisphere_title_data[3].hem_title}}</h5>
+                                <a href="{{mars_data.Hemisphere_image_data[3].image_url}}">
+                                <img src="{{mars_data.Hemisphere_image_data[3].image_url}}" width= 100%>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+			<footer class="page-footer col-md-12 font-extra small">
+				<div class="footer text-center py-3">
+                    <br>
+                    <p class="text-bottom">2019 UNC DATA Analytics Program Assignment</p>
+				</div>
+			</footer>
+    </div>
+
+</body>
+
+</html>
